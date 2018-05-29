@@ -70,7 +70,7 @@ ipc.on('open-file-out-dialog', (e) => {
   })
 })
 
-// 监听 备份文件夹-back
+// 监听 选择文件夹-backup
 ipc.on('open-file-back-dialog', (e) => {
   dialog.showOpenDialog({
     properties: ['openFile', 'openDirectory']
@@ -78,3 +78,68 @@ ipc.on('open-file-back-dialog', (e) => {
     if(files) {e.sender.send('back-backup', files)}
   })
 })
+
+// 监听程序退出
+ipc.on('window-close', () => {
+  mainWindow.close()
+})
+
+// 监听错误提示
+ipc.on('open-error-dialog', () => {
+    dialog.showErrorBox('错误', '地址栏不能为空')
+})
+
+// 监听地址值是否符合规范
+ipc.on('open-error-reg-dialog', () => {
+  dialog.showErrorBox('错误', '地址不符合规范')
+})
+
+
+// //grunt 生成快捷方式  
+// var path = require('path');  
+// var handleStartupEvent = function () {  
+//   if (process.platform !== 'win32') {  
+//     return false;  
+//   }  
+  
+//   var squirrelCommand = process.argv[1];  
+  
+//   switch (squirrelCommand) {  
+//     case '--squirrel-install':  
+//     case '--squirrel-updated':  
+//       install();  
+//       return true;  
+//     case '--squirrel-uninstall':  
+//       uninstall();  
+//       app.quit();  
+//       return true;  
+//     case '--squirrel-obsolete':  
+//       app.quit();  
+//       return true;  
+//   }  
+//     // 安装  
+//   function install() {  
+//     var cp = require('child_process');      
+//     var updateDotExe = path.resolve(path.dirname(process.execPath), '..', 'update.exe');  
+//     var target = path.basename(process.execPath);  
+//     var child = cp.spawn(updateDotExe, ["--createShortcut", target], { detached: true });  
+//     child.on('close', function(code) {  
+//         app.quit();  
+//     });  
+//   }  
+//    // 卸载  
+//    function uninstall() {  
+//     var cp = require('child_process');      
+//     var updateDotExe = path.resolve(path.dirname(process.execPath), '..', 'update.exe');  
+//     var target = path.basename(process.execPath);  
+//     var child = cp.spawn(updateDotExe, ["--removeShortcut", target], { detached: true });  
+//     child.on('close', function(code) {  
+//         app.quit();  
+//     });  
+//   }  
+  
+// };  
+  
+// if (handleStartupEvent()) {  
+//   return;  
+// }  
