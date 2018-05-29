@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <div id="main">
+      <section class="input-area control">
+          <h4>Input Folder</h4>
+          <input type="text" id="input-src" class="path-views">
+          <span type="file" id="input-btn" class="btns">打开</span>
+      </section>
+
+      <section class = "output-area control">
+        <h4>Output Folder</h4>
+        <input type="text" id ="output-src" class="path-views">
+        <span type="file" id="output-btn" class="btns">打开</span>
+      </section>
+
+      <section class = "backup-area control">
+        <h4>Backup Folder</h4>
+        <input type="text" id ="backup-src" class="path-views">
+        <span type="file" id="backup-btn" class="btns">打开</span>
+      </section>
+
+     
+
+    </div>
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+  </body>
+</html>

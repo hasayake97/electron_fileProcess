@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#main{
+  width: 80%;
+  height: 800px;
+  margin: 0 auto;
+  padding: 0 15%;
+}
+h4{
+  margin-bottom: 10px;
+}
+.path-views{
+  width: 88%;
+}
+.btns{
+  font-size: 12px;
+  display: inline-block;
+  border: 1px solid #999;
+  cursor: pointer;
+  padding: 1px;
+}
+.control{
+  margin: 10px 0;
+}
