@@ -17,11 +17,38 @@ h4{
 }
 .btns{
   font-size: 12px;
-  display: inline-block;
   border: 1px solid #999;
   cursor: pointer;
-  padding: 1px;
+  padding: 2px 2px 1px;
 }
 .control{
   margin: 10px 0;
 }
+#watcher{
+  outline-color: skyblue;
+  resize: none;
+  height: 100px;
+  width: 91.4%;
+}
+#run-area{
+  padding-right: 8.4%;
+}
+#run-area:after{
+  display: block;
+  clear: both;
+  content: '';
+}
+.btns-core{
+  font-size: 18px;
+  float: right;
+  margin-left: 10px;
+  padding: 5px 8px;
+}
+#run-area > p ~ span{
+  background: red;
+  color: #fff;
+}
+#run-area > span:nth-child(3){
+  background: green;
+}
+/* #run-area > p + span */

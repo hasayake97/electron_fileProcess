@@ -13,7 +13,7 @@ inputs.addEventListener('click', (e) => {
 }, false)
 
 ipc.on('back', (e, path) => {
-  indexFunc.allInFile(path[0])
+  indexFunc.inputHandler(path[0])
   document.getElementById('input-src').value = path
 })
 

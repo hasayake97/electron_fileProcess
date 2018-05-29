@@ -2,19 +2,22 @@ const fs = require('fs')
 const path = require('path')
 
 module.exports = {
-  allInFile : async (paths) => {
+  inputHandler : async (paths) => {
     let allPath = await fs.readdirSync(paths)
-    let tempArr = []
-        content = '';
+    let content = '',
+        fileNow = ''
+
     for(pathItem of allPath) {
-      tempArr.push(path.join(paths, pathItem))
-    }
-    console.log(tempArr)
-    for(fileItem of tempArr) {
-      if(!fs.statSync(fileItem).isDirectory()){
-          content = fs.readFileSync(fileItem, 'utf-8')
+      let tempPath = path.join(paths, pathItem),
+          flag = !fs.statSync(tempPath).isDirectory() && tempPath.endsWith('.html')
+          
+      if(flag){
+        fileNow = fs.createReadStream(tempPath, 'utf-8')
+        fileNow.on('data', (chunk) => {content += chunk})
+        fileNow.on('close', () => {
+          document.getElementById('watcher').innerHTML = content
+        })
       }
-      console.log(content)
     }
   }
 }

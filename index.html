@@ -7,26 +7,35 @@
   </head>
   <body>
     <div id="main">
+      <!-- input -->
       <section class="input-area control">
           <h4>Input Folder</h4>
           <input type="text" id="input-src" class="path-views">
-          <span type="file" id="input-btn" class="btns">打开</span>
+          <span type="file" id="input-btn" class="btns">Open</span>
       </section>
-
-      <section class = "output-area control">
+      <!-- output -->
+      <section clas ="output-area control">
         <h4>Output Folder</h4>
         <input type="text" id ="output-src" class="path-views">
-        <span type="file" id="output-btn" class="btns">打开</span>
+        <span type="file" id="output-btn" class="btns">Open</span>
       </section>
-
-      <section class = "backup-area control">
+      <!-- backup -->
+      <section class="backup-area control">
         <h4>Backup Folder</h4>
         <input type="text" id ="backup-src" class="path-views">
-        <span type="file" id="backup-btn" class="btns">打开</span>
+        <span type="file" id="backup-btn" class="btns">Open</span>
+      </section> 
+      <!-- views -->
+      <section>
+        <textarea name="" cols="30" rows="100000" id="watcher">
+        </textarea>
       </section>
-
-     
-
+      <!-- run or exit -->
+      <section id="run-area">
+        <p id="status">status: <span></span></p>
+        <span id="exits" class="btns btns-core">退出</span>
+        <span id="run" class="btns btns-core">运行</span>
+      </section>
     </div>
     <script>
       // You can also require other files to run in this process
