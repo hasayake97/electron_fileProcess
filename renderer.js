@@ -52,20 +52,18 @@ exits.addEventListener('click', (e) => {
 const run = document.getElementById('run')
 run.addEventListener('click', (e) => {
 
-  let reg = /^[a-zA-Z]:\\/
+  let reg = /^[a-z]:\\/i
   // 判断三个path是否为空
-  let flag = inputPath.value !== '' && outputPath.value !== '' && backupPath.value !== '',
-      regFlag = reg.test(inputPath.value) && reg.test(outputPath.value) && reg.test(backupPath.value)
+  let flag = inputPath.value !== '' && outputPath.value !== '' && backupPath.value !== ''
+  let regFlag = reg.test(inputPath.value) && reg.test(outputPath.value) && reg.test(backupPath.value)
   // 判断三个path是否真实存在，若不存在则创建
   if(flag){
     if(regFlag){
       let tempArr = [inputPath.value, outputPath.value, backupPath.value];
-      (() => {
-        for(item of tempArr){
-          if(!fs.existsSync(item)){fs.mkdirSync(item)}
-        }
-      })();
-      indexFunc.handler(inputs, outputs, backups)
+      for(item of tempArr){
+        if(!fs.existsSync(item)){fs.mkdirSync(item)}
+      }
+      indexFunc.handler(...tempArr)
     }else{
       ipc.send('open-error-reg-dialog')
     }

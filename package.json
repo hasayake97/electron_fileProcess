@@ -5,7 +5,6 @@
   "main": "main.js",
   "scripts": {
     "start": "electron ."
-    
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -21,7 +20,10 @@
     "electron": "^2.0.0"
   },
   "dependencies": {
+    "csv": "^3.1.0",
     "electron-connect": "^0.6.3",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "node-csv": "^0.1.2",
+    "ya-csv": "^0.10.1"
   }
 }
