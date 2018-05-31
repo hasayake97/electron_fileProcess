@@ -17,13 +17,11 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^2.0.0"
+    "electron": "^2.0.0",
+    "electron-connect": "^0.6.3",
+    "gulp": "^3.9.1"
   },
   "dependencies": {
-    "csv": "^3.1.0",
-    "electron-connect": "^0.6.3",
-    "gulp": "^3.9.1",
-    "node-csv": "^0.1.2",
-    "ya-csv": "^0.10.1"
+    "csvparser_aning": "^1.0.3"
   }
 }

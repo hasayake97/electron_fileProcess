@@ -1,21 +1,19 @@
 const fs = require('fs')
 const path = require('path')
+const csv = require('csvparser_aning')
 
 module.exports = {
-  handler : async (inputs, outputs, backups) => {
-    let fileNameArr = fs.readdirSync(inputs).filter(f => /^.csv$/i.test(path.extname(f)))
-    let content = ''
-    for(fileItem of fileNameArr){
-      let absolutePath = path.join(inputs, fileItem)
-      let read = fs.createReadStream(absolutePath, 'utf-8')
-      read
-          .on('data', (data) => {
-            console.log(data)
-          })
-          .on('close', () => {
-            // console.log('done')
-            document.getElementById('watcher').innerHTML += 'done\n'
-          })
+  handler : (inputs, outputs, backups) => {
+    let res = csv(inputs)
+    for(key of Object.keys(res)){
+      // 备份
+      let backName = 'back_'
+      fs.writeFileSync(path.join(backups, backName+key), res[key])
+      // 输出
+      let outName = 'out_'
+      fs.writeFileSync(path.join(outputs, outName+key), res[key])
     }
+    
   },
 }
+
