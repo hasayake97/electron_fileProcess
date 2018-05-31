@@ -15,7 +15,7 @@ function createWindow () {
   mainWindow.loadFile('index.html')
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -95,51 +95,51 @@ ipc.on('open-error-reg-dialog', () => {
 })
 
 
-// //grunt 生成快捷方式  
-// var path = require('path');  
-// var handleStartupEvent = function () {  
-//   if (process.platform !== 'win32') {  
-//     return false;  
-//   }  
+//grunt 生成快捷方式  
+var path = require('path');  
+var handleStartupEvent = function () {  
+  if (process.platform !== 'win32') {  
+    return false;  
+  }  
   
-//   var squirrelCommand = process.argv[1];  
+  var squirrelCommand = process.argv[1];  
   
-//   switch (squirrelCommand) {  
-//     case '--squirrel-install':  
-//     case '--squirrel-updated':  
-//       install();  
-//       return true;  
-//     case '--squirrel-uninstall':  
-//       uninstall();  
-//       app.quit();  
-//       return true;  
-//     case '--squirrel-obsolete':  
-//       app.quit();  
-//       return true;  
-//   }  
-//     // 安装  
-//   function install() {  
-//     var cp = require('child_process');      
-//     var updateDotExe = path.resolve(path.dirname(process.execPath), '..', 'update.exe');  
-//     var target = path.basename(process.execPath);  
-//     var child = cp.spawn(updateDotExe, ["--createShortcut", target], { detached: true });  
-//     child.on('close', function(code) {  
-//         app.quit();  
-//     });  
-//   }  
-//    // 卸载  
-//    function uninstall() {  
-//     var cp = require('child_process');      
-//     var updateDotExe = path.resolve(path.dirname(process.execPath), '..', 'update.exe');  
-//     var target = path.basename(process.execPath);  
-//     var child = cp.spawn(updateDotExe, ["--removeShortcut", target], { detached: true });  
-//     child.on('close', function(code) {  
-//         app.quit();  
-//     });  
-//   }  
+  switch (squirrelCommand) {  
+    case '--squirrel-install':  
+    case '--squirrel-updated':  
+      install();  
+      return true;  
+    case '--squirrel-uninstall':  
+      uninstall();  
+      app.quit();  
+      return true;  
+    case '--squirrel-obsolete':  
+      app.quit();  
+      return true;  
+  }  
+    // 安装  
+  function install() {  
+    var cp = require('child_process');      
+    var updateDotExe = path.resolve(path.dirname(process.execPath), '..', 'update.exe');  
+    var target = path.basename(process.execPath);  
+    var child = cp.spawn(updateDotExe, ["--createShortcut", target], { detached: true });  
+    child.on('close', function(code) {  
+        app.quit();  
+    });  
+  }  
+   // 卸载  
+   function uninstall() {  
+    var cp = require('child_process');      
+    var updateDotExe = path.resolve(path.dirname(process.execPath), '..', 'update.exe');  
+    var target = path.basename(process.execPath);  
+    var child = cp.spawn(updateDotExe, ["--removeShortcut", target], { detached: true });  
+    child.on('close', function(code) {  
+        app.quit();  
+    });  
+  }  
   
-// };  
+};  
   
-// if (handleStartupEvent()) {  
-//   return;  
-// }  
+if (handleStartupEvent()) {  
+  return;  
+}  

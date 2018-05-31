@@ -4,9 +4,10 @@
 }
 #main{
   width: 80%;
-  height: 800px;
+  height: auto;
   margin: 0 auto;
   padding: 0 15%;
+  box-sizing: border-box;
 }
 h4{
   margin-bottom: 10px;

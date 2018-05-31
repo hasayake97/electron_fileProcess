@@ -4,7 +4,8 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-packager . csvcover --win --out ../myapp --arch=x64 "  
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -14,7 +15,7 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
+  "author": "luojun",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^2.0.0",
