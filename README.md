@@ -1,4 +1,3 @@
-使用Electron以及NodeJs开发一个桌面应用
 ## Electron-fileProcess
 使用Electron以编写一个处理文件的桌面应用
 
